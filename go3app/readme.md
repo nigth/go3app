@@ -25,9 +25,15 @@ ________
 * Database structure with example:
 
 emp_id: '1' (Employees_ID)
+
 first_name: Bill
+
 second_name: Gates
+
 types: developer   (developer, designer, manager)
+
 experience: '10'
+
 default_salary: '2000'
+
 ________
