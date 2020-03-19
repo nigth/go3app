@@ -31,7 +31,7 @@ func main() {
 }
 
 func RootHandler(w http.ResponseWriter, r *http.Request) {
-	team := Item{
+	team := Team{
 		Employee{Name: "Vasya", Age: 25},
 		Employee{Name: "Petya", Age: 30},
 	}

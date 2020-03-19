@@ -16,8 +16,6 @@ import (
 	"net/http"
 
 	"github.com/ghodss/yaml"
-	//"github.com/gorilla/mux"
-	//"gopkg.in/yaml.v2"
 )
 
 type Item struct {
@@ -54,6 +52,9 @@ func main() {
 			panic(err)
 		}
 		y1, err := yaml.JSONToYAML(body)
+
+		//log.Println(y1)
+		//fmt.Println(y1)
 
 		//if err := json.Unmarshal(body, &item1); err != nil {
 		//	w.WriteHeader(400)
