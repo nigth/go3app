@@ -14,13 +14,12 @@ import (
 )
 
 type Item struct {
-	ID             uint    `json:"id"`   //Employees_ID
-	Type           string  `json:"type"` //developer, designer, manager
-	First_Name     string  `json:"first_name"`
-	Second_Name    string  `json:"second_name"`
-	Salary_Default int     `json:"salary_default"`
-	Experience     uint    `json:"experience"`
-	Coefficient    float32 `json:"coefficient"`
+	Emp_ID         uint   `json:"emp_id"`
+	First_Name     string `json:"first_name"`
+	Second_Name    string `json:"second_name"`
+	Types          string `json:"types"` //developer, designer, manager
+	Experience     uint   `json:"experience"`
+	Default_Salary int32  `json:"default_salary"`
 }
 
 func main() {
@@ -30,9 +29,12 @@ func main() {
 func MakeRequest() {
 
 	message := map[string]interface{}{
-		"ID":         1,
-		"Type":       "designer",
-		"First_Name": "Picasso",
+		"Emp_ID":         1,
+		"First_Name":     "Pablo",
+		"Second_Name":    "Picasso",
+		"Types":          "designer",
+		"Experience":     5,
+		"Default_Salary": 2000,
 	}
 
 	bytesRepresentation, err := json.Marshal(message)

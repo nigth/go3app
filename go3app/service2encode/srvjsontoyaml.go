@@ -16,21 +16,23 @@ import (
 	"net/http"
 
 	"github.com/ghodss/yaml"
+	//"github.com/gorilla/mux"
+	//"gopkg.in/yaml.v2"
 )
 
 type Item struct {
-	ID             uint    `json:"id"`   //Employees_ID
-	Type           string  `json:"type"` //developer, designer, manager
-	First_Name     string  `json:"first_name"`
-	Second_Name    string  `json:"second_name"`
-	Salary_Default int     `json:"salary_default"`
-	Experience     uint    `json:"experience"`
-	Coefficient    float32 `json:"coefficient"`
+	Emp_ID         uint   `json:"emp_id"`
+	First_Name     string `json:"first_name"`
+	Second_Name    string `json:"second_name"`
+	Types          string `json:"types"` //developer, designer, manager
+	Default_Salary int    `json:"default_salary"`
+	Experience     uint   `json:"experience"`
 }
 
 func main() {
 
-	item := Item{ID: 2, Type: "developer", Second_Name: "Gates"}
+	item := Item{Emp_ID: 2, First_Name: "Bill", Second_Name: "Gates", Types: "developer"}
+
 	jitem, err := json.Marshal(item)
 	if err != nil {
 		fmt.Println(err.Error())
@@ -63,6 +65,10 @@ func main() {
 		}
 
 		fmt.Fprintf(w, string(resp.Status))
+		log.Println(resp)
+		fmt.Println(resp)
+
 	})
 	http.ListenAndServe(":8082", nil)
+
 }

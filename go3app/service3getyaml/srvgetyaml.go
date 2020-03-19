@@ -16,13 +16,22 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
+type Item struct {
+	Emp_ID         uint   `yaml:"emp_id"`
+	First_Name     string `yaml:"first_name"`
+	Second_Name    string `yaml:"second_name"`
+	Types          string `yaml:"types"` //developer, designer, manager
+	Default_Salary int    `yaml:"default_salary"`
+	Experience     uint   `yaml:"experience"`
+}
+
 func main() {
 	router := NewRouter()
 	log.Fatal(http.ListenAndServe(":8083", router))
 }
 
 func RootHandler(w http.ResponseWriter, r *http.Request) {
-	team := Team{
+	team := Item{
 		Employee{Name: "Vasya", Age: 25},
 		Employee{Name: "Petya", Age: 30},
 	}
@@ -72,7 +81,7 @@ func NewRouter() *mux.Router {
 var routesArray = []Route{
 	Route{
 		Name:        "Root",
-		Method:      "GET",
+		Method:      "POST",
 		Pattern:     "/",
 		HandlerFunc: RootHandler,
 	},
