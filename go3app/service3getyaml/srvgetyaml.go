@@ -28,6 +28,8 @@ type Item struct {
 func main() {
 	router := NewRouter()
 	log.Fatal(http.ListenAndServe(":8083", router))
+	log.Println(router)
+	fmt.Println(router)
 }
 
 func RootHandler(w http.ResponseWriter, r *http.Request) {
